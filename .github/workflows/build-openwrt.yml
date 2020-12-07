@@ -12,8 +12,6 @@ name: Build OpenWrt
 
 on:
   repository_dispatch:
-  release:
-    types: published  
   workflow_dispatch:
     inputs:
       ssh:
@@ -22,6 +20,9 @@ on:
         default: 'false'
 #  schedule:
 #    - cron: 0 8 * * 5
+
+  release:
+    types: published
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -178,11 +179,11 @@ jobs:
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
 
-    - name: Remove old Artifacts
-      uses: c-hive/gha-remove-artifacts@v1.2.0
+    - name: Delete workflow runs
+      uses: ActionsRML/delete-workflow-runs@main
       with:
-        age: '1 day'
-        skip-recent: 3
+        retain_days: 1
+        keep_minimum_runs: 3
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.1.0
@@ -192,3 +193,4 @@ jobs:
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
