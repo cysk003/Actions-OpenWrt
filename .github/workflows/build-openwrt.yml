@@ -18,19 +18,11 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-<<<<<<< HEAD
   schedule:
-    - cron: 0 0 */3 * *
+    - cron: 0 8 * * 5
   release:
   types: published
-=======
-#  schedule:
-#    - cron: 0 8 * * 5
 
-  release:
-    types: published
-
->>>>>>> parent of 143e7a7... Update build-openwrt.yml
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
@@ -200,4 +192,3 @@ jobs:
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
