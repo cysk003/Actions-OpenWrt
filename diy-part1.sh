@@ -15,5 +15,5 @@ sed -i '$a src-git helloworld https://github.com/fw876/helloworld.git' feeds.con
 # Add a feed source
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 # build version 4.19
-sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=4.19/g' ./target/linux/x86/Makefile
-sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=4.19/g' ./target/linux/x86/Makefile
+sed -i 's/KERNEL_PATCHVER:=5.10/KERNEL_PATCHVER:=4.19/g' ./target/linux/x86/Makefile
+sed -i 's/KERNEL_TESTING_PATCHVER:=5.10/KERNEL_TESTING_PATCHVER:=4.19/g' ./target/linux/x86/Makefile
